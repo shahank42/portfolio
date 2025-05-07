@@ -1,6 +1,6 @@
 import DeviconReact from "../assets/icons/DeviconReact.svg"
 import DeviconSvelte from "../assets/icons/DeviconSvelte.svg"
-import DeviconNextjs from "../assets/icons/DeviconNextjs.svg"
+import DeviconNextjs from "../assets/icons/DeviconPlainNextjs.svg"
 import DeviconReactnative from "../assets/icons/DeviconReactnative.svg"
 import SimpleIconsExpo from "../assets/icons/SimpleIconsExpo.svg"
 // import Tanstack from "../assets/icons/Tanstack.png"
