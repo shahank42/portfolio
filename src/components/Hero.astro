@@ -1,3 +1,7 @@
+---
+import { CONTENT } from "@/lib/content"
+---
+
 <div>
   <div class="grid md:hidden justify-center border-b border-edge-primary grid-cols-[var(--width-gutter)_minmax(0,calc(var(--container-7xl)-5rem))_var(--width-gutter)]">
     <div class="block col-start-1 md:col-start-2 border-e md:border-x border-input bg-[image:repeating-linear-gradient(315deg,_var(--color-gutter-edge)_0,_var(--color-gutter-edge)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed light:bg-surface-a1 dark:bg-black/20"></div>
@@ -8,8 +12,9 @@
         
         <div class="GoldenLayoutTextMobile mx-auto relative grid grid-rows-[1.618fr_1fr] grid-cols-[1.618fr_minmax(0,1fr)] aspect-[1/1.618] overflow-hidden">
           <div class="GoldenLayoutTextMobileMainSquare p-4 xs:p-6 sm:p-8 flex flex-col gap-4 xs:gap-6 row-[1] col-[1/span_2]">
-            <h1 class="text-4xl leading-8 xs:text-5xl xs:leading-8 sm:text-6xl sm:leading-9 font-medium dark:font-normal text-balance sm:mr-12">shahank</h1>
-            <p class=" max-w-lg text-3 leading-3 tracking-3 sm:text-4 sm:leading-4 sm:tracking-4 text-surface-10 text-balance">lorem10</p>
+            <p class="text-md xs:text-lg xs:leading-2 lg:text-xl lg:leading-3 text-muted-foreground mb-2 ">{CONTENT.hero.sub}</p>
+            <h1 class="text-3xl leading-8 xs:text-4xl xs:leading-8 sm:text-5xl sm:leading-9 font-medium dark:font-normal text-balance sm:mr-12">{CONTENT.hero.main}</h1>
+            <!-- <p class=" max-w-lg text-3 leading-3 tracking-3 sm:text-4 sm:leading-4 sm:tracking-4 text-surface-10 text-balance">lorem10</p> -->
           </div>
           <div class="GoldenLayoutTextMobileRectangle p-4 flex flex-col gap-4 row-[2] col-[2]"></div>
           <div class="GoldenLayoutTextMobileSquare p-4 xs:p-6 sm:p-8 row-[2] col-[1/span_2] xs:col-[1]">tech stack</div>
@@ -28,8 +33,9 @@
 
       <div class="GoldenLayoutTextDesktop relative grid grid-rows-[1fr_1.618fr] grid-cols-[1.618fr_minmax(0,1fr)] aspect-[1.618/1] overflow-hidden">
         <div class="GoldenLayoutTextDesktopMainSquare border-x px-8 lg:px-10 pt-10 flex flex-col gap-6 lg:gap-8 row-[1/span_2] col-[1]">
-          <h1 class="text-[52px] leading-[60px] lg:text-[68px] lg:leading-[76px] font-medium dark:font-normal text-balance">shahank</h1>
-          <p class="text-4 leading-4 tracking-4 lg:text-4 lg:leading-4 lg:tracking-4 text-surface-10 text-balance">lorem10</p>
+          <p class="text-lg leading-2 tracking-2 lg:text-xl lg:leading-3 lg:tracking-3 text-muted-foreground -mt-4">{CONTENT.hero.sub}</p>
+          <h1 class="text-[36px] leading-[42px] lg:text-[48px] lg:leading-[64px] font-medium dark:font-normal text-balance">{CONTENT.hero.main}</h1>
+          <!-- <p class="text-4 leading-4 tracking-4 lg:text-4 lg:leading-4 lg:tracking-4 text-surface-10 text-balance">lorem10</p> -->
         </div>
         <div class="GoldenLayoutTextDesktopRectangle p-4 flex flex-col gap-4 row-[1] col-[2]"></div>
         <div class="GoldenLayoutTextDesktopSquare border-t p-6 pt-4 lg:p-8 lg:pt-6 row-[2] col-[2]">tech stack</div>
