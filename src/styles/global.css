@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Zilla+Slab:wght@300;400;500;600;700&display=swap');
+
 @import 'tailwindcss';
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -44,6 +52,9 @@
   --color-surface-foreground: var(--secondary-foreground);
 
   --color-gutter-edge: var(--input);
+
+  --font-zilla-slab: var(--font-zilla-slab);
+  --font-inter: var(--font-inter);
 }
 
 :root {
@@ -79,6 +90,9 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  --font-inter: Inter, monospace;
+  --font-zilla-slab: Zilla Slab, monospace;
 }
 
 .dark {
@@ -127,6 +141,6 @@
 :root {
   /* Common layout widths */
   --width-gutter: 24px;           /* Side gutter width */
-  --width-landing-container: 80rem; /* Maximum container width */
+  --width-landing-container: 1024px; /* Maximum container width */
   --header-height: 55px;
 }
