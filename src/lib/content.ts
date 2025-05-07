@@ -30,6 +30,10 @@ export const CONTENT = {
         Icon: DeviconNextjs,
       },
       {
+        label: "SvelteKit",
+        Icon: DeviconSvelte,
+      },
+      {
         label: "React Native",
         Icon: DeviconReactnative,
       },
