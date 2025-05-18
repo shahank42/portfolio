@@ -3,18 +3,9 @@ import { Button, buttonVariants } from "./ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 import { GithubIcon, SquareArrowOutUpRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { CONTENT } from "@/lib/content";
 
-export const ProjectsIsland = ({ projects }:
-  {
-    projects: {
-      key: string;
-      label: string;
-      image: GetImageResult;
-      link: string;
-      github?: string;
-      description: string;
-    }[]
-  }) => {
+export const ProjectsIsland = ({ projects }: { projects: typeof CONTENT.projects }) => {
   return (
     <Tabs
       orientation="vertical"
@@ -35,7 +26,7 @@ export const ProjectsIsland = ({ projects }:
 
       {projects.map((project) => (
         <TabsContent key={project.key} value={project.key} className="md:border-l border-input">
-          <img src={project.image.src} width={project.image.options.width} height={project.image.options.height} className="border-b border-input" />
+          <img src={project.image.src} width={project.image.width} height={project.image.height} className="border-b border-input" />
           <div className="flex flex-col">
             <span className="py-3 px-4 font-inter text-sm text-secondary-foreground/75">{project.description}</span>
             <div className="grid grid-cols-2 place-items-center">
@@ -43,7 +34,7 @@ export const ProjectsIsland = ({ projects }:
                 <a className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-input" href={project.link} target="_blank">Open Link <SquareArrowOutUpRightIcon /></a>
               </Button>
 
-              {project.github === undefined ? (
+              {project.github === "#" ? (
                 <Button variant="ghost" className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-l border-input" disabled>
                   Source Code
                   <GithubIcon />

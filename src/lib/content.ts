@@ -5,6 +5,9 @@ import DeviconReactnative from "../assets/icons/DeviconReactnative.svg"
 import SimpleIconsExpo from "../assets/icons/SimpleIconsExpo.svg"
 // import Tanstack from "../assets/icons/Tanstack.png"
 
+import aiRecoveryProjectImage from "../assets/projects/ai-recovery.png";
+import sophistAIProjectImage from "../assets/projects/sophist-ai.png";
+
 export const CONTENT = {
   hero: {
     sub: "hi i'm shounak ghosh, a",
@@ -42,5 +45,29 @@ export const CONTENT = {
         Icon: SimpleIconsExpo,
       },
     ]
-  }
+  },
+  projects: [
+    {
+      key: "sophist-ai",
+      label: "SophistAI",
+      image: sophistAIProjectImage,
+      link: "https://sophistai.app",
+      github: "#",
+      description: "Struggling with a messy, multi-page syllabus before exams? SophistAI turns it into a clear, interactive mind map— so you can study smarter, not harder."
+    },
+    // {
+    //   key: "pchat",
+    //   label: "pChat",
+    //   image: "#",
+    //   link: "https://pchat-chi.vercel.app"
+    // },
+    {
+      key: "ai-recovery",
+      label: "AI-Recovery and High Value Services",
+      image: aiRecoveryProjectImage,
+      link: "https://ai-recovery.co.in",
+      github: "#",
+      description: "AI- Recovery & High Value Services is a modern consulting firm which empowers consumers in terms of contributing a small portion in developing a sustainable livelihood."
+    },
+  ]
 }
