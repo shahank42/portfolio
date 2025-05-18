@@ -11,7 +11,7 @@ export const CONTENT = {
     main1: "fullstack web dev",
     main2: "+ pro keyboard smasher",
     paragraph1: "i write performant and scalable software. been writing code ever since i got access to a computer back in 2009.",
-    paragraph2: "need an someone to help you build the next biggest thing? i've got your back.",
+    paragraph2: "need someone to help you build the next biggest thing? i've got your back.",
     tools: [
       {
         label: "React",

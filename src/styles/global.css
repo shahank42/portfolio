@@ -140,7 +140,7 @@
 
 :root {
   /* Common layout widths */
-  --width-gutter: 24px;           /* Side gutter width */
+  --width-gutter: 16px;           /* Side gutter width */
   --width-landing-container: 1024px; /* Maximum container width */
   --header-height: 55px;
 }
