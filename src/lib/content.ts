@@ -12,7 +12,7 @@ import aconewsProjectImage from "../assets/projects/aconews.png"
 
 export const CONTENT = {
   hero: {
-    sub: "hi i'm shounak ghosh, a",
+    sub: "hi i'm shahank42, a",
     main1: "fullstack web dev",
     main2: "+ pro keyboard smasher",
     paragraph1: "i write performant and scalable software. been writing code ever since i got access to a computer back in 2009.",
