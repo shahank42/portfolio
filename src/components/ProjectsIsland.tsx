@@ -26,7 +26,7 @@ export const ProjectsIsland = ({ projects }:
       <TabsList className="flex flex-col w-full bg-transparent p-0">
         {projects.map((project) => (
           <TabsTrigger asChild key={project.key} value={project.key} >
-            <Button variant="ghost" size="lg" className="font-inter text-sm lg:text-md justify-start px-8 sm:px-8 lg:px-10 w-full rounded-none cursor-pointer py-2 sm:py-3 border-b border-t-0 border-x-0 border-input">
+            <Button variant="ghost" size="lg" className="font-inter text-sm lg:text-md justify-start px-8 sm:px-8 lg:px-10 w-full rounded-none cursor-pointer py-3 border-b border-t-0 border-x-0 border-input">
               {project.label}
             </Button>
           </TabsTrigger>
@@ -38,18 +38,29 @@ export const ProjectsIsland = ({ projects }:
           <img src={project.image.src} width={project.image.options.width} height={project.image.options.height} className="border-b border-input" />
           <div className="flex flex-col">
             <span className="py-3 px-4 font-inter text-sm text-secondary-foreground/75">{project.description}</span>
-            <div className="grid grid-cols-2 justify-items-center">
+            <div className="grid grid-cols-2 place-items-center">
               <Button variant="ghost" asChild>
-                <a className="py-0 font-inter text-sm w-full rounded-none border-t border-input" href={project.link} target="_blank" rel="noopener noreferrer"><SquareArrowOutUpRightIcon /></a>
+                <a className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-input" href={project.link} target="_blank">Open Link <SquareArrowOutUpRightIcon /></a>
               </Button>
-              <a
-                className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "py-0 font-inter text-sm w-full rounded-none border-t border-l border-input"
-                )}
-                href={project.github ?? "#"} target="_blank" rel="noopener noreferrer">
-                <GithubIcon />
-              </a>
+
+              {project.github === undefined ? (
+                <Button variant="ghost" className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-l border-input" disabled>
+                  Source Code
+                  <GithubIcon />
+                </Button>
+              ) : (
+                <a
+                  className={cn(
+                    buttonVariants({ variant: "ghost" }),
+                    "h-full py-3 font-inter text-xs w-full rounded-none border-t border-l border-input"
+                  )}
+                  href={project.github}
+                  target="_blank"
+                >
+                  Source Code
+                  <GithubIcon />
+                </a>
+              )}
             </div>
           </div>
         </TabsContent>
