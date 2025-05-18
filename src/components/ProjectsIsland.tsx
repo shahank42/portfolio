@@ -31,11 +31,11 @@ export const ProjectsIsland = ({ projects }: { projects: typeof CONTENT.projects
             <span className="py-3 px-4 font-inter text-sm text-secondary-foreground/75">{project.description}</span>
             <div className="grid grid-cols-2 place-items-center">
               <Button variant="ghost" asChild>
-                <a className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-input" href={project.link} target="_blank">Open Link <SquareArrowOutUpRightIcon /></a>
+                <a className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-r border-input" href={project.link} target="_blank">Open Link <SquareArrowOutUpRightIcon /></a>
               </Button>
 
               {project.github === "#" ? (
-                <Button variant="ghost" className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-l border-input" disabled>
+                <Button variant="ghost" className="h-full py-3 font-inter text-xs w-full rounded-none border-t border-input" disabled>
                   Source Code
                   <GithubIcon />
                 </Button>
@@ -43,7 +43,7 @@ export const ProjectsIsland = ({ projects }: { projects: typeof CONTENT.projects
                 <a
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
-                    "h-full py-3 font-inter text-xs w-full rounded-none border-t border-l border-input"
+                    "h-full py-3 font-inter text-xs w-full rounded-none border-t border-input"
                   )}
                   href={project.github}
                   target="_blank"
