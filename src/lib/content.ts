@@ -7,6 +7,8 @@ import SimpleIconsExpo from "../assets/icons/SimpleIconsExpo.svg"
 
 import aiRecoveryProjectImage from "../assets/projects/ai-recovery.png";
 import sophistAIProjectImage from "../assets/projects/sophist-ai.png";
+import pChatProjectImage from "../assets/projects/pchat.png";
+import aconewsProjectImage from "../assets/projects/aconews.png"
 
 export const CONTENT = {
   hero: {
@@ -55,12 +57,22 @@ export const CONTENT = {
       github: "#",
       description: "Struggling with a messy, multi-page syllabus before exams? SophistAI turns it into a clear, interactive mind map— so you can study smarter, not harder."
     },
-    // {
-    //   key: "pchat",
-    //   label: "pChat",
-    //   image: "#",
-    //   link: "https://pchat-chi.vercel.app"
-    // },
+    {
+      key: "pchat",
+      label: "pChat",
+      image: pChatProjectImage,
+      link: "https://pchat-chi.vercel.app",
+      github: "https://github.com/shahank42/pChat/",
+      description: "A quick, disposable and decentralized messaging app for the web. Everything is stored in a decentralised database, no servers involved! Everyone using the app stores some part of the database with them, forming a peer-to-peer network."
+    },
+    {
+      key: "aconews",
+      label: "aconews",
+      image: aconewsProjectImage,
+      link: "https://aconews-6e1e1.web.app/",
+      github: "https://github.com/shahank42/aconews",
+      description: "aconews is a modern news aggregator. It provides users with a seamless experience to stay updated on the latest news across various categories."
+    },
     {
       key: "ai-recovery",
       label: "AI-Recovery and High Value Services",
