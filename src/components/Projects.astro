@@ -1,0 +1,46 @@
+---
+import { ProjectsIsland } from "./ProjectsIsland";
+
+import aiRecoveryProjectImage from "../assets/projects/ai-recovery.png";
+import sophistAIProjectImage from "../assets/projects/sophist-ai.png";
+import { getImage } from "astro:assets";
+
+const projects = [
+  {
+    key: "sophist-ai",
+    label: "SophistAI",
+    image: sophistAIProjectImage,
+    link: "https://sophistai.app",
+    description: "Struggling with a messy, multi-page syllabus before exams? SophistAI turns it into a clear, interactive mind map— so you can study smarter, not harder."
+  },
+  // {
+  //   key: "pchat",
+  //   label: "pChat",
+  //   image: "#",
+  //   link: "https://pchat-chi.vercel.app"
+  // },
+  {
+    key: "ai-recovery",
+    label: "AI-Recovery and High Value Services",
+    image: aiRecoveryProjectImage,
+    link: "https://ai-recovery.co.in",
+    description: "AI- Recovery & High Value Services is a modern consulting firm which empowers consumers in terms of contributing a small portion in developing a sustainable livelihood."
+  },
+];
+---
+
+<div class="grid justify-center lg:mx-auto border-b border-input grid-cols-1 md:grid-cols-[1fr_minmax(0,var(--width-landing-container))_1fr]">
+  <div class="col-start-1 hidden md:block"></div>
+  <ProjectsIsland
+    client:load
+    projects={
+      await Promise.all(
+        projects.map(async (project) => ({
+          ...project,
+          image: await getImage({ src: project.image, format: "png" }),
+        }))
+      )
+    }
+  />
+  <div class="md:col-start-3 hidden md:block"></div>
+</div>
