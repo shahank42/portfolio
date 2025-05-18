@@ -23,7 +23,7 @@ export const ProjectsIsland = ({ projects }:
       <TabsList className="flex flex-col w-full bg-transparent p-0">
         {projects.map((project) => (
           <TabsTrigger asChild key={project.key} value={project.key} >
-            <Button variant="ghost" size="lg" className="font-inter text-base lg:text-md justify-start px-8 sm:px-8 lg:px-10 w-full rounded-none cursor-pointer py-3 border-b border-t-0 border-x-0 border-input">
+            <Button variant="ghost" size="lg" className="font-inter text-sm lg:text-md justify-start px-8 sm:px-8 lg:px-10 w-full rounded-none cursor-pointer py-2 sm:py-3 border-b border-t-0 border-x-0 border-input">
               {project.label}
             </Button>
           </TabsTrigger>
