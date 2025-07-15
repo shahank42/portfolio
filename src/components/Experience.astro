@@ -1,0 +1,74 @@
+<div class="grid justify-center lg:mx-auto border-b border-input grid-cols-1 md:grid-cols-[1fr_minmax(0,var(--width-landing-container))_1fr]">
+    <div class="col-start-1 hidden md:block"></div>
+    <div class="relative grid grid-cols-1 border-x border-input">
+        <div class="absolute inset-0 pointer-events-none text-surface-8/50 hidden md:block">
+            <svg class="absolute -left-[6.5px] -top-[6.5px]" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vector-effect="non-scaling-stroke"><path d="M6 0V12M0 6H12" stroke="currentColor"></path></svg>
+            <svg class="absolute -right-[6.5px] -top-[6.5px]" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vector-effect="non-scaling-stroke"><path d="M6 0V12M0 6H12" stroke="currentColor"></path></svg>
+        </div>
+        <div class="flex flex-col bg-surface-1 px-8 py-14 sm:p-8 lg:p-10 border-b-0 border-input">
+            <h3 class="text-3xl md:text-4xl tracking-tight font-semibold dark:font-normal mb-2 font-zilla-slab">professional experience</h3>
+            <div class="text-sm leading-7 md:text-base md:leading-7 text-surface-foreground flex flex-col gap-3 font-inter">
+                
+                <!-- START: Timeline Component -->
+                <div class="relative mt-6">
+                    <!-- The vertical line -->
+                    <div class="absolute left-[5px] top-2 h-full w-px bg-border-input"></div>
+
+                    <!-- Timeline Items Container -->
+                    <div class="space-y-8">
+                        
+                        <!-- Experience 1: Aarish Technologies Inc. -->
+                        <div class="relative">
+                            <!-- Marker -->
+                            <div class="absolute left-0 top-1.5 text-border-input">
+                                <svg class="w-[11px] h-[11px]" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vector-effect="non-scaling-stroke">
+                                    <path d="M6 0V12M0 6H12" stroke="currentColor" stroke-width="1.5"></path>
+                                </svg>
+                            </div>
+                            <!-- Content -->
+                            <div class="pl-8">
+                                <p class="text-sm font-medium text-secondary-foreground">october 2024 - march 2025</p>
+                                <h4 class="font-zilla-slab text-lg md:text-xl text-surface-foreground flex flex-wrap items-baseline gap-x-2">
+                                    <span class="font-medium text-secondary-foreground">remote backend intern</span>
+                                    <span class="font-normal text-secondary-foreground">@</span>
+                                    <a href="https://aarish.ai" target="_blank" rel="noopener noreferrer" class="font-semibold text-surface-foreground hover:text-muted-foreground transition-colors duration-150">Aarish Technologies Inc.</a>
+                                    <span class="font-normal text-secondary-foreground">(QC, Canada)</span>
+                                </h4>
+                                <ul class="list-outside list-disc pl-4 mt-2 space-y-2 text-base text-muted-foreground">
+                                    <li>built a video streaming and storage pipeline for a military mesh network app, playing around with fastapi, ffmpeg, and gstreamer to get the latency and bandwidth just right</li>
+                                    <li>cooked up a custom udp packet encoding scheme to get esp32 nodes talking reliably on shaky networks</li>
+                                    <li>put together a full-stack app with react and fastapi for audio classification, hooking it up to tensorflow. the indian military is apparently using it now, which is pretty cool</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Experience 2: AI-Recovery -->
+                        <div class="relative">
+                            <!-- Marker -->
+                            <div class="absolute left-0 top-1.5 text-border-input">
+                                <svg class="w-[11px] h-[11px]" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vector-effect="non-scaling-stroke">
+                                    <path d="M6 0V12M0 6H12" stroke="currentColor" stroke-width="1.5"></path>
+                                </svg>
+                            </div>
+                            <!-- Content -->
+                            <div class="pl-8">
+                                <p class="text-sm font-medium text-secondary-foreground">june 2024 - september 2024</p>
+                                <h4 class="font-zilla-slab text-lg md:text-xl text-surface-foreground flex flex-wrap items-baseline gap-x-2">
+                                    <span class="font-medium text-secondary-foreground">freelance web developer</span>
+                                    <span class="font-normal text-secondary-foreground">@</span>
+                                    <a href="https://ai-recovery.co.in" target="_blank" rel="noopener noreferrer" class="font-semibold text-surface-foreground hover:text-muted-foreground transition-colors duration-150">AI-Recovery and High Value Services</a>
+                                    <span class="font-normal text-secondary-foreground">(WB, India)</span>
+                                </h4>
+                                <p class="text-base text-muted-foreground mt-2">whipped up a 7-page static site for an insurance startup and hosted it on cloudflare pages, then set up a slick cloudinary solution to serve their images super fast.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- END: Timeline Component -->
+                
+            </div>
+        </div>
+    </div>
+    <div class="md:col-start-3 hidden md:block"></div>
+</div>
