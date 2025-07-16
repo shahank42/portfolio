@@ -43,6 +43,12 @@ type EventProps = {
   children: ReactNode;
 };
 
+type CommitStats = {
+  filesChanged: number;
+  additions: number;
+  deletions: number;
+};
+
 // --- Event Parsers ---
 
 // A generic component to display an event
@@ -56,16 +62,86 @@ const Event = ({ icon, children }: EventProps) => (
 );
 
 // Parses and displays a PushEvent (commits)
+// const PushEvent = ({ event }: { event: GithubEvent }) => {
+//   const commitCount = event.payload.commits.length;
+//   const commitOrCommits = commitCount === 1 ? "commit" : "commits";
+//   const repoName = event.repo.name;
+//   const repoUrl = `https://github.com/${repoName}`;
+
+//   return (
+//     <Event icon={GitMerge}>
+//       <p className="text-surface-foreground/75 text-xs truncate">
+//         pushed {commitCount} {commitOrCommits} to{" "}
+//         <a
+//           href={repoUrl}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="font-semibold text-surface-foreground hover:text-muted-foreground transition-colors"
+//         >
+//           {repoName}
+//         </a>
+//       </p>
+//       <ul className="text-secondary-foreground text-xs list-none pl-0">
+//         {event.payload.commits.slice(0, 1).map((commit: any) => (
+//           <li key={commit.sha} className="truncate flex items-center gap-2">
+//             <a
+//               href={`https://github.com/${repoName}/commit/${commit.sha}`}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="font-mono hover:underline"
+//             >
+//               {commit.sha.slice(0, 7)}
+//             </a>
+//             <span>{commit.message}</span>
+//           </li>
+//         ))}
+//       </ul>
+//     </Event>
+//   );
+// };
+
+// Parses and displays a PushEvent (commits) with detailed stats
 const PushEvent = ({ event }: { event: GithubEvent }) => {
-  const commitCount = event.payload.commits.length;
-  const commitOrCommits = commitCount === 1 ? "commit" : "commits";
+  const [commitStats, setCommitStats] = useState<CommitStats | null>(null);
+  const [loadingStats, setLoadingStats] = useState(false);
+
   const repoName = event.repo.name;
   const repoUrl = `https://github.com/${repoName}`;
+  const latestCommit = event.payload.commits[0];
+
+  useEffect(() => {
+    const fetchCommitStats = async () => {
+      if (!latestCommit) return;
+      setLoadingStats(true);
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/${repoName}/commits/${latestCommit.sha}`,
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch commit details");
+        }
+        const data = await res.json();
+        setCommitStats({
+          filesChanged: data.files.length,
+          additions: data.stats.additions,
+          deletions: data.stats.deletions,
+        });
+      } catch (error) {
+        console.error(error);
+        // Silently fail, don't show an error message for this sub-fetch
+        setCommitStats(null);
+      } finally {
+        setLoadingStats(false);
+      }
+    };
+
+    fetchCommitStats();
+  }, [repoName, latestCommit]);
 
   return (
     <Event icon={GitMerge}>
       <p className="text-surface-foreground/75 text-xs truncate">
-        pushed {commitCount} {commitOrCommits} to{" "}
+        pushed {event.payload.commits.length} commit(s) to{" "}
         <a
           href={repoUrl}
           target="_blank"
@@ -75,21 +151,33 @@ const PushEvent = ({ event }: { event: GithubEvent }) => {
           {repoName}
         </a>
       </p>
-      <ul className="text-secondary-foreground text-xs list-none pl-0">
-        {event.payload.commits.slice(0, 1).map((commit: any) => (
-          <li key={commit.sha} className="truncate flex items-center gap-2">
-            <a
-              href={`https://github.com/${repoName}/commit/${commit.sha}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono hover:underline"
-            >
-              {commit.sha.slice(0, 7)}
-            </a>
-            <span>{commit.message}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="text-secondary-foreground text-xs">
+        <div className="truncate flex items-center gap-2">
+          <a
+            href={`https://github.com/${repoName}/commit/${latestCommit.sha}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono hover:underline"
+          >
+            {latestCommit.sha.slice(0, 7)}
+          </a>
+          <span>{latestCommit.message}</span>
+        </div>
+        {loadingStats && (
+          <div className="flex items-center gap-2 mt-1">
+            <Skeleton className="h-2 w-16" />
+            <Skeleton className="h-2 w-8" />
+            <Skeleton className="h-2 w-8" />
+          </div>
+        )}
+        {commitStats && (
+          <div className="flex items-center gap-2 text-xs font-mono mt-1">
+            <span>{commitStats.filesChanged} files changed</span>
+            <span className="text-green-500">++{commitStats.additions}</span>
+            <span className="text-red-500">--{commitStats.deletions}</span>
+          </div>
+        )}
+      </div>
     </Event>
   );
 };
@@ -97,8 +185,8 @@ const PushEvent = ({ event }: { event: GithubEvent }) => {
 // Parses and displays a CreateEvent (new branch or repo)
 const CreateEvent = ({ event }: { event: GithubEvent }) => {
   const { ref_type, ref } = event.payload;
-    const repoName = event.repo.name;
-    const repoUrl = `https://github.com/${repoName}`;
+  const repoName = event.repo.name;
+  const repoUrl = `https://github.com/${repoName}`;
 
   if (ref_type === "branch") {
     return (
@@ -236,7 +324,7 @@ const GithubActivity = ({ username = "shahank42" }) => {
           throw new Error(`Failed to fetch activity: ${response.status}`);
         }
         const data = await response.json();
-        
+
         // Filter and map in one go for slight optimization
         const filteredActivity = data
           .filter((event: any) =>
@@ -281,30 +369,35 @@ const GithubActivity = ({ username = "shahank42" }) => {
   return (
     <Card className="flex w-full font-inter text-secondary-foreground/50 rounded-none border-none bg-background">
       {/* <CardHeader>
-        <CardTitle className="flex items-center gap-2"> 
+        <CardTitle className="flex items-center gap-2">
           <Activity size={18} strokeWidth={1.5} />
           Recent Activity
         </CardTitle>
       </CardHeader> */}
       <CardContent>
-      <div className="flex flex-col gap-4"> {/* Added a wrapper with spacing */}
-        {loading &&
-          Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="flex items-start gap-2">
-              <Skeleton className="w-4 h-4 rounded-full mt-0.5" />
-              <div className="flex flex-col gap-2 w-full">
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-3 w-1/2" />
+        <div className="flex flex-col gap-4">
+          {" "}
+          {/* Added a wrapper with spacing */}
+          {loading &&
+            Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <Skeleton className="w-4 h-4 rounded-full mt-0.5" />
+                <div className="flex flex-col gap-2 w-full">
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-3 w-1/2" />
+                </div>
               </div>
-            </div>
-          ))}
-        {error && <p className="text-red-500 text-xs">Error: {error}</p>}
-        {!loading && !error && activity.length > 0 && activity.map(renderEvent)}
-        {!loading && !error && activity.length === 0 && (
-          <p className="text-muted-foreground text-xs">
-            No recent public activity to display.
-          </p>
-        )}
+            ))}
+          {error && <p className="text-red-500 text-xs">Error: {error}</p>}
+          {!loading &&
+            !error &&
+            activity.length > 0 &&
+            activity.map(renderEvent)}
+          {!loading && !error && activity.length === 0 && (
+            <p className="text-muted-foreground text-xs">
+              No recent public activity to display.
+            </p>
+          )}
         </div>
       </CardContent>
     </Card>
