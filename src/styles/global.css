@@ -159,6 +159,18 @@
     height: 90px;
 }
 
+@media (max-width: 768px) {
+    .inverted-cursor {
+        /* Hide the custom cursor element */
+        display: none;
+    }
+
+    body {
+        /* Restore the default system cursor */
+        cursor: default;
+    }
+}
+
 :root {
     /* Common layout widths */
     --width-gutter: 16px; /* Side gutter width */
