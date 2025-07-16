@@ -1,5 +1,6 @@
 ---
 import GithubActivityIsland from "./GithubActivityIsland";
+import SpotifyIsland from "./SpotifyIsland";
 ---
 
 <div
@@ -8,21 +9,17 @@ import GithubActivityIsland from "./GithubActivityIsland";
   <div class="col-start-1 hidden md:block"></div>
 
   <div class="relative border-x border-edge-primary">
-    <div class="grid md:grid-cols-2">
-      <!-- <div class="flex-1 relative bg-surface-1 p-8 sm:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-edge-primary">
-        <h3 class="text-2xl leading-6 tracking-6 sm:text-3xl sm:leading-7 sm:tracking-7 font-semibold dark:font-normal mb-4 font-zilla-slab text-balance">what am i doing now?</h3>
-        <div class="text-sm leading-7 md:text-base md:leading-7 text-surface-foreground flex flex-col gap-3 font-inter">
-          <p class="text-secondary-foreground/75">final year of undergrand. currently mass applying and building cool stuff.</p>
-        </div>
-      </div> -->
-      
-      <div class="flex-1 relative bg-surface-1 p-8 sm:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-edge-primary">
-        <h3 class="text-2xl leading-6 tracking-6 sm:text-3xl sm:leading-7 sm:tracking-7 font-semibold dark:font-normal mb-4 font-zilla-slab text-balance">currently jamming to</h3>
-        <div class="text-sm leading-7 md:text-base md:leading-7 text-surface-foreground flex flex-col gap-3 font-inter">
-          <p class="text-secondary-foreground/75">Money Trees by Kendrick Lamar</p>
+    <div class="grid md:grid-cols-2 gap-y-0">
+      <div class="flex-1 relative bg-surface-1 border-b md:border-b-0 md:border-r border-edge-primary">
+        <h3 class="text-2xl leading-6 tracking-6 p-6 sm:p-6 lg:p-8 sm:text-3xl sm:leading-7 sm:tracking-7 font-semibold dark:font-normal font-zilla-slab text-balance border-b border-input text-left">
+            i was listening to...</h3>
+        <div class="text-sm leading-7 md:text-base md:leading-7 pb-4 text-surface-foreground bg-muted/20 flex flex-col gap-3 font-inter">
+          <SpotifyIsland
+            client:load
+          />
         </div>
       </div>
-
+      
       <div class="flex-1 relative bg-surface-1 border-b md:border-b-0 md:border-r border-edge-primary">
         <h3 class="text-2xl leading-6 tracking-6 p-6 sm:p-6 lg:p-8 sm:text-3xl sm:leading-7 sm:tracking-7 font-semibold dark:font-normal font-zilla-slab text-balance border-b border-input text-right">open source activity</h3>
         <div class="text-sm leading-7 md:text-base md:leading-7 pt-3 pb-4 text-surface-foreground flex flex-col gap-3 font-inter">
