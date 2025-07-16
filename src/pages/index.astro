@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 
+import { InvertedCursor } from "../components/InvertedCursor.tsx";
+
 import Header from "@/components/Header.astro";
 import Banner from "@/components/Banner.astro";
 import Hero from "@/components/Hero.astro";
@@ -47,6 +49,7 @@ import Footer from "@/components/Footer.astro";
 	</head>
 
 	<body>
+	    <InvertedCursor client:load />
 		<Header />
 		<Banner />
 		<Hero />
