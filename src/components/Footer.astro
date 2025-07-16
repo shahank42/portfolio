@@ -1,5 +1,41 @@
-<footer class="grid justify-center lg:mx-auto w-full grid-cols-1 md:grid-cols-[1fr_minmax(0,var(--width-landing-container))_1fr] light:bg-surface-a1 dark:bg-surface-1 row-start-3 row-end-4">
-  <div></div>
-  <div class="border-x border-edge-primary p-6 flex items-start justify-between">footer</div>
-  <div></div>
+---
+// Get the current year dynamically for the copyright notice.
+const currentYear = new Date().getFullYear();
+
+// Define the navigation links.
+const footerLinks = [
+    { href: "/hire", text: "hire me" },
+    { href: "/guestbook", text: "guestbook" },
+    { href: "/experiments", text: "experiments" },
+    { href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", text: "secret link" },
+];
+---
+
+<footer class="grid justify-center lg:mx-auto w-full grid-cols-1 md:grid-cols-[1fr_minmax(0,var(--width-landing-container))_1fr] dark:bg-surface-1 row-start-3 row-end-4 border-t border-input">
+    <!-- Left grid column -->
+    <div class="border-r border-input"></div>
+    
+    <!-- Main footer content -->
+    <div class="border-x-0 border-edge-primary p-6 py-16 pb-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <!-- Left Column: Copyright -->
+        <div class="text-sm text-secondary-foreground font-inter">
+            &copy; {currentYear} Shounak Ghosh, All rights reserved.
+        </div>
+
+        <!-- Right Column: Navigation Links -->
+        <nav>
+            <ul class="flex items-center gap-x-6 font-inter text-sm">
+                {footerLinks.map(link => (
+                    <li>
+                        <a href={link.href} class="text-muted-foreground hover:text-surface-foreground transition-colors duration-150">
+                            {link.text}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Right grid column -->
+    <div class="border-l border-input"></div>
 </footer>
