@@ -1,7 +1,6 @@
 // src/components/SmoothScroller.tsx
 import { useEffect } from "react";
 import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 
 export const SmoothScroller = () => {
   useEffect(() => {
