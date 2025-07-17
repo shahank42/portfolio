@@ -5,12 +5,13 @@ import AnimatedCursor from "react-animated-cursor";
 export const InvertedCursor: React.FC = () => {
   return (
     <AnimatedCursor
-      innerStyle={{ backgroundColor: "var(--color-secondary)" }}
+      innerStyle={{
+        mixBlendMode: "exclusion",
+        backgroundColor: "var(--color-primary)",
+      }}
       outerSize={40} // Size of the inverted circle
       innerScale={1}
       outerScale={1.9} // How much it grows on hover
-      // This prop applies the inverted color effect
-      hasBlendMode={true}
       // We provide our own styling for the outer circle
       outerStyle={{
         mixBlendMode: "exclusion",
