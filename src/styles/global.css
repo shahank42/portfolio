@@ -138,6 +138,10 @@
     }
 }
 
+.bg-texture {
+    background-image: url("https://www.transparenttextures.com/patterns/black-orchid.png");
+}
+
 .inverted-cursor {
     width: 30px;
     height: 30px;

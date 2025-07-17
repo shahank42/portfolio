@@ -158,7 +158,7 @@ const SpotifyActivity = () => {
   }, []);
 
   return (
-    <div className="flex flex-col bg-background">
+    <div className="flex flex-col bg-background bg-texture">
       {loading &&
         Array.from({ length: 5 }).map((_, i) => (
           <div

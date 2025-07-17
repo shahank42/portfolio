@@ -64,7 +64,7 @@ export const ProjectsIsland = ({
       <TabsList className="flex flex-col w-full bg-transparent p-0">
         {Object.entries(groupedProjects).map(([type, projectsInType]) => (
           <div key={type} className="w-full">
-            <div className="flex sticky top-0 z-10 px-0  py-0 text-sm md:text-xs font-semibold text-secondary-foreground/90 lowercase bg-background text-left md:text-right border-b border-input border-l-0">
+            <div className="flex sticky top-0 z-10 px-0  py-0 text-sm md:text-xs font-semibold text-secondary-foreground/90 lowercase bg-background bg-texture text-left md:text-right border-b border-input border-l-0">
               <div className="w-[100%] h-8 border-gutter-edge [--color:var(--color-gutter-edge)]/40  bg-[image:repeating-linear-gradient(315deg,_var(--color)_0,_var(--color)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed">
                 <div className="border-x border-input w-full h-full max-w-5xl mx-auto"></div>
               </div>
