@@ -4,11 +4,16 @@ import DeviconNextjs from "../assets/icons/DeviconPlainNextjs.svg";
 import DeviconReactnative from "../assets/icons/DeviconReactnative.svg";
 import SimpleIconsExpo from "../assets/icons/SimpleIconsExpo.svg";
 // import Tanstack from "../assets/icons/Tanstack.png"
+import Golang from "../assets/icons/Golang.svg";
+import Hono from "../assets/icons/Hono.svg";
+import Postgres from "../assets/icons/Postgres.svg";
+import Typescript from "../assets/icons/Typescript.svg";
 
 import aiRecoveryProjectImage from "../assets/projects/ai-recovery.png";
 import sophistAIProjectImage from "../assets/projects/sophist-ai.png";
 import pChatProjectImage from "../assets/projects/pchat.png";
 import aconewsProjectImage from "../assets/projects/aconews.png";
+import TextPilotProjectImage from "../assets/projects/text-pilot.png";
 
 export const CONTENT = {
   hero: {
@@ -21,6 +26,10 @@ export const CONTENT = {
       "need someone to help you build the next biggest thing? i've got your back.",
     tools: [
       {
+        label: "Typescript",
+        Icon: Typescript,
+      },
+      {
         label: "React",
         Icon: DeviconReact,
       },
@@ -29,16 +38,28 @@ export const CONTENT = {
       //   Icon: Tanstack,
       // },
       {
-        label: "Svelte",
+        label: "Svelte/SvelteKit",
         Icon: DeviconSvelte,
       },
       {
         label: "Next.js",
         Icon: DeviconNextjs,
       },
+      // {
+      //   label: "SvelteKit",
+      //   Icon: DeviconSvelte,
+      // },
       {
-        label: "SvelteKit",
-        Icon: DeviconSvelte,
+        label: "Golang",
+        Icon: Golang,
+      },
+      {
+        label: "Hono",
+        Icon: Hono,
+      },
+      {
+        label: "PostgreSQL",
+        Icon: Postgres,
       },
       {
         label: "React Native",
@@ -51,6 +72,16 @@ export const CONTENT = {
     ],
   },
   projects: [
+    {
+      key: "textpilot",
+      label: "TextPilot",
+      image: TextPilotProjectImage,
+      link: "#",
+      github: "https://github.com/shahank42/textpilot/",
+      description:
+        "TextPilot is a self-hostable and soon installable WhatsApp client with an AI Co-pilot!",
+      type: "side project",
+    },
     {
       key: "sophist-ai",
       label: "SophistAI",
