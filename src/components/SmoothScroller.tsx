@@ -6,7 +6,6 @@ export const SmoothScroller = () => {
   useEffect(() => {
     // 1. Initialize Lenis
     const lenis = new Lenis({
-      lerp: 0.1, // Controls the "smoothness." Lower is smoother.
       autoRaf: true,
     });
 
