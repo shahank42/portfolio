@@ -71,6 +71,38 @@ export const CONTENT = {
       },
     ],
   },
+  hire: {
+    pitch: [
+      {
+        title: "performance first",
+        description:
+          "i build lightning-fast applications that don't just work—they fly. optimized for core web vitals and user experience.",
+      },
+      {
+        title: "modern stack",
+        description:
+          "leveraging the latest tech like tanstack, next.js, astro, react 19, sveltekit, convex, etc. and go to build scalable, maintainable software for the future.",
+      },
+      {
+        title: "pixel perfect",
+        description:
+          "meticulous attention to detail in design implementation. your vision, translated perfectly into code.",
+      },
+    ],
+    basePrices: {
+      static: 15000,
+      dynamic: 40000,
+      ecommerce: 65000,
+    },
+    pagePrice: 3000,
+    featurePrices: {
+      auth: 10000,
+      payments: 15000,
+      cms: 12000,
+      seo: 5000,
+      responsive: 8000,
+    },
+  },
   projects: [
     {
       key: "textpilot",

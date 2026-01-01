@@ -1,0 +1,28 @@
+---
+import { CONTENT } from "@/lib/content";
+---
+
+<section class="border-b border-input">
+  <div
+    class="grid justify-center lg:mx-auto grid-cols-1 md:grid-cols-[1fr_minmax(0,var(--width-landing-container))_1fr]"
+  >
+    <div class="col-start-1 hidden md:block"></div>
+    <div class="py-20 px-8 lg:px-10 border-x border-input">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {
+          CONTENT.hire.pitch.map((item, index) => (
+            <div class="space-y-4">
+              <h3 class="font-inter text-sm text-muted-foreground uppercase tracking-widest">
+                0{index + 1} // {item.title}
+              </h3>
+              <p class="font-inter text-foreground leading-relaxed text-lg lowercase">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="col-start-3 hidden md:block"></div>
+  </div>
+</section>

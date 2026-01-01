@@ -13,7 +13,9 @@
     <div class="w-full">
       <div class="px-4 h-full flex items-center justify-between">
         <div class="px-4 h-full w-full flex items-center justify-between">
-					<a href="/pf" class="flex items-center justify-center w-full gap-1.5 font-zilla-slab">sh42.me/pf</a>
+          <a href={Astro.url.pathname === '/hire' ? '/pf' : '/hire'} class="flex items-center justify-center w-full gap-1.5 font-zilla-slab hover:text-primary transition-colors">
+            sh42.me{Astro.url.pathname === '/' ? '/pf' : Astro.url.pathname}
+          </a>
         </div>
       </div>
     </div>

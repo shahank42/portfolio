@@ -1,0 +1,28 @@
+---
+import { PricingCalculator } from "@/components/PricingCalculator";
+---
+
+<section id="calculator" class="border-b-0 border-input scroll-mt-20">
+  <div
+    class="grid justify-center lg:mx-auto grid-cols-1 md:grid-cols-[1fr_minmax(0,var(--width-landing-container))_1fr]"
+  >
+    <div class="col-start-1 hidden md:block"></div>
+    <div class="border-b-0 border-input">
+      <div
+        class="border-x border-b-0 border-input p-8 lg:px-10 py-16 flex flex-col items-center justify-center text-center space-y-6"
+      >
+        <h2
+          class="font-zilla-slab text-4xl md:text-6xl tracking-tighter lowercase"
+        >
+          pricing <span class="text-primary">calculator</span>
+        </h2>
+        <p class="font-inter text-muted-foreground text-lg max-w-lg lowercase">
+          get a rough estimate for your next big idea. select the parameters
+          below to calculate the investment.
+        </p>
+      </div>
+      <PricingCalculator client:load />
+    </div>
+    <div class="col-start-3 hidden md:block"></div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+
+import { SmoothScroller } from "../components/SmoothScroller";
+import { InvertedCursor } from "../components/InvertedCursor.tsx";
+
+import Header from "@/components/Header.astro";
+import HireHero from "@/components/HireHero.astro";
+import SectionDivider from "@/components/SectionDivider.astro";
+import CalculatorSection from "@/components/CalculatorSection.astro";
+import HirePitch from "@/components/HirePitch.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<script is:inline>
+    const getThemePreference = () => {
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+    }
+</script>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Hire Me | sh42.me</title>
+    </head>
+
+    <body class="bg-texture">
+        <SmoothScroller client:only />
+        <InvertedCursor client:load />
+        <Header />
+        
+        <main>
+            <HireHero />
+            <HirePitch />
+            <SectionDivider />
+            <CalculatorSection />
+        </main>
+
+
+        <Footer />
+    </body>
+</html>
