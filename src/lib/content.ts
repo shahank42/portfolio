@@ -89,7 +89,7 @@ export const CONTENT = {
       link: "https://sophistai.app",
       github: "#",
       description:
-        "Struggling with a messy, multi-page syllabus before exams? SophistAI turns it into a clear, interactive mind map— so you can study smarter, not harder.",
+        "Struggling with a messy, multi-page syllabus before exams? SophistAI turns it into a clear, interactive mind map— so you can study smarter, not harder. 10k+ views, 700+ users.",
       type: "hackathon",
     },
     {
