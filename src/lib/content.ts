@@ -1,10 +1,7 @@
 import DeviconReact from "../assets/icons/DeviconReact.svg";
 import DeviconSvelte from "../assets/icons/DeviconSvelte.svg";
 import DeviconNextjs from "../assets/icons/DeviconPlainNextjs.svg";
-import DeviconReactnative from "../assets/icons/DeviconReactnative.svg";
-import SimpleIconsExpo from "../assets/icons/SimpleIconsExpo.svg";
 // import Tanstack from "../assets/icons/Tanstack.png"
-import Golang from "../assets/icons/Golang.svg";
 import Hono from "../assets/icons/Hono.svg";
 import Postgres from "../assets/icons/Postgres.svg";
 import Typescript from "../assets/icons/Typescript.svg";
@@ -45,14 +42,6 @@ export const CONTENT = {
         label: "Next.js",
         Icon: DeviconNextjs,
       },
-      // {
-      //   label: "SvelteKit",
-      //   Icon: DeviconSvelte,
-      // },
-      {
-        label: "Golang",
-        Icon: Golang,
-      },
       {
         label: "Hono",
         Icon: Hono,
@@ -60,14 +49,6 @@ export const CONTENT = {
       {
         label: "PostgreSQL",
         Icon: Postgres,
-      },
-      {
-        label: "React Native",
-        Icon: DeviconReactnative,
-      },
-      {
-        label: "Expo",
-        Icon: SimpleIconsExpo,
       },
     ],
   },
@@ -81,7 +62,7 @@ export const CONTENT = {
       {
         title: "modern stack",
         description:
-          "leveraging the latest tech like tanstack, next.js, astro, react 19, sveltekit, convex, etc. and go to build scalable, maintainable software for the future.",
+          "leveraging the latest tech like tanstack, next.js, astro, react 19, sveltekit, convex, etc. and python to build scalable, maintainable software for the future.",
       },
       {
         title: "pixel perfect",
